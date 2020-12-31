@@ -6,16 +6,18 @@ $botonAgregarTarea.onclick = function () {
   tareas.push($nuevaTarea);
 
   const lista = document.querySelector("#tareas");
-  console.log(lista);
 
   const $botonBorrarElemento = document.createElement("button");
-  $botonBorrarElemento.textContent = "Eliminar elemento";
+  $botonBorrarElemento.textContent = "Eliminar tarea";
+  $botonBorrarElemento.className = "btn btn-danger btn-sm ml-auto";
 
   const elemento = document.createElement("li");
 
-  elemento.appendChild($botonBorrarElemento);
   lista.appendChild(elemento);
-  elemento.textContent = `${$nuevaTarea}`;
+  lista.appendChild($botonBorrarElemento);
+
+  elemento.textContent = `${$nuevaTarea}   `;
+  elemento.className = "list-group-item list-group-item-info d-flex";
   elemento.onclick = function () {
     elemento.style = "text-decoration:line-through";
   };
@@ -24,8 +26,9 @@ $botonAgregarTarea.onclick = function () {
     elemento.id = "tarea" + (index + 1);
   }
 
-  elemento.appendChild($botonBorrarElemento);
+  // elemento.appendChild($botonBorrarElemento);
   $botonBorrarElemento.onclick = function () {
     lista.removeChild(elemento);
+    lista.removeChild($botonBorrarElemento);
   };
 };
