@@ -1,1 +1,3 @@
-# lista-de-tareas
+# TO DO LIST
+
+Hecho con React y Bootstrap
